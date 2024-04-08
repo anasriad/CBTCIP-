@@ -2,6 +2,7 @@ import Private from "./components/Private"
 import Login from "./pages/Login"
 import ManagerHome from "./pages/Maneger/Home"
 import Tracker from "./pages/Maneger/Track"
+import SignUp from "./pages/SignUp"
 import Landing from "./pages/landing"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 function App() {
@@ -12,10 +13,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />}></Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/manager" element={<Private />}>
             <Route index element={<Navigate to='/manager/Home' />} />
             <Route path="Home" element={<ManagerHome />} />
-            <Route path="tracker" element={<Tracker/>}/>
+            <Route path="tracker" element={<Tracker />} />
           </Route>
         </Routes>
       </BrowserRouter>

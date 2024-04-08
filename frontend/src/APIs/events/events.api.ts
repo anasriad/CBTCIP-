@@ -1,13 +1,6 @@
 import { apiSlice } from "../apiSlice";
 
-interface EventPost {
-    Name: string,
-    startDate: string,
-    endDate: string,
-    Description: string,
-    associationId: string | undefined,
-    userId: string | undefined
-}
+import { EventPost } from "../../utils/types";
 
 export const eventSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -15,9 +8,15 @@ export const eventSlice = apiSlice.injectEndpoints({
             query: (NewEvent: EventPost) => ({ url: 'Event/addEvent', method: 'POST', body: NewEvent })
         }),
         getAssociationEvents: builder.query({
-            query: (associationId) => ({ url: `/getEvents/${associationId}` })
+            query: (associationId: string) => ({ url: `Event/getEvents/${associationId}` })
+        }),
+        updateEvent: builder.mutation({
+            query: (eventInfo) => ({ url: `Event/updateEvent`, method: 'PUT', body: eventInfo })
+        }),
+        deleteEvent: builder.mutation({
+            query: (eventId) => ({ url: `Event/deleteEvent/${eventId}`, method:'DELETE' })
         })
     })
 })
 
-export const { useAddEventMutation, useGetAssociationEventsQuery } = eventSlice
+export const { useAddEventMutation, useGetAssociationEventsQuery, useUpdateEventMutation, useDeleteEventMutation } = eventSlice

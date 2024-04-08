@@ -24,7 +24,7 @@ export default function AddEvent(props: Props) {
             startDate: '',
             endDate: '',
             Description: '',
-            associationId: Creator?.associaltionId,
+            associationId: Creator?.associationId,
             userId: Creator?.Id
         },
         validationSchema: Validation,

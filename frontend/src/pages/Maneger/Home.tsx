@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Header from "../../components/Header";
 import { getCurrentUser } from "../../states/authSlice/auth";
-import { MdAddToPhotos, MdCancel } from 'react-icons/md'
+import { MdAddToPhotos } from 'react-icons/md'
 import { TbPlayerTrackNextFilled } from 'react-icons/tb'
 import { FaCalendarAlt } from 'react-icons/fa'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -10,10 +10,11 @@ import 'swiper/css'
 import { useState } from "react";
 import AddEvent from "../../components/dialogs/AddEvent";
 import { motion } from 'framer-motion'
+import { useNavigate } from "react-router-dom";
 export default function ManagerHome() {
     const CurrentUser = useSelector(getCurrentUser)
     const [AddDialog, setDialog] = useState(false)
-
+    const Navigate = useNavigate()
     return <> {
         AddDialog && <motion.div initial={{ translateX: -100, opacity: 0 }}
             animate={{ translateX: 0, opacity: 1 }}
@@ -50,22 +51,12 @@ export default function ManagerHome() {
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className=" flex flex-col justify-center items-center p-6 rounded-2xl border-2 gap-7 w-56 h-56 hover:duration-200 hover:cursor-pointer hover:bg-orange-500 hover:scale-110 hover:text-white">
+                                <div className=" flex flex-col justify-center items-center p-6 rounded-2xl border-2 gap-7 w-56 h-56 hover:duration-200 hover:cursor-pointer hover:bg-orange-500 hover:scale-110 hover:text-white" onClick={() => Navigate('/manager/tracker')}>
                                     <div>
                                         <h1 className=" font-bold text-2xl text-center">Track Current Events</h1>
                                     </div>
                                     <div>
                                         <TbPlayerTrackNextFilled className=" animate-pulse text-3xl" />
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className=" flex flex-col justify-center items-center p-6 rounded-2xl border-2 gap-7 w-56 h-56 hover:duration-200 hover:cursor-pointer hover:bg-orange-500 hover:scale-110 hover:text-white">
-                                    <div>
-                                        <h1 className=" font-bold text-2xl text-center">Cancel Events</h1>
-                                    </div>
-                                    <div>
-                                        <MdCancel className=" animate-pulse text-3xl" />
                                     </div>
                                 </div>
                             </SwiperSlide>
