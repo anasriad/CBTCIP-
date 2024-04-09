@@ -6,7 +6,7 @@ import CheckForToken from '../middlewares/checkForToken'
 const Events = express()
 
 Events.post('/addEvent', CheckForToken, CheckForRoles, ScheduleEventController)
-Events.get('/getEvents/:associationId', CheckForToken, GetAssociationEventController)
+Events.get('/getEvents/:associationId', GetAssociationEventController)
 Events.put('/updateEvent', CheckForToken, CheckForRoles, updateEventController)
 Events.delete('/deleteEvent', CheckForRoles, CheckForToken, deleteEventController)
 

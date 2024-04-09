@@ -1,5 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { VerifyToken } from "../utils/jwt";
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export default function CheckForToken(req: Request, res: Response, next: NextFunction) {
 
