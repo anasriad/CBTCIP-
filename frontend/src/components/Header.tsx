@@ -8,7 +8,7 @@ export default function Header() {
   return <>
     <header>
       <div className='pt-2 pl-3 pb-2 bg-black flex justify-between'>
-        <div onClick={()=>Navigate('/landing')} className=' hover:cursor-pointer'>
+        <div onClick={()=>Navigate('/')} className=' hover:cursor-pointer'>
           <img src={Logo} />
         </div>
         <div className=' flex gap-7 pr-9'>
